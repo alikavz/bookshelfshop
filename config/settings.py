@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'accs',
     'mypages',
+    'bookha',
 ]
 
 MIDDLEWARE = [
