@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block page_title %}edit {{ book.title }}{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <input type="submit" value="edit now">
+        <br>
+    </form>
+    <a href="{% url 'booklis' %}"></a>
+
+{% endblock %}
