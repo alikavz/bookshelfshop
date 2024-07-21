@@ -8,5 +8,5 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2) # ta 5 ragham save kun ke 2 raghamesh ashaare
 
     def __str__(self):
-        return self.title
+        return f'{self.author}: {self.title}'
 
