@@ -4,8 +4,8 @@
 {% block page_title %}detail of book {{ book.title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ book.title }}</h1>
-    <p>{{ book.desc }}</p>
+    <h1>{{ book.title|capfirst }}</h1>
+    <p>{{ book.desc|linebreaks }}</p>
     <p>{{ book.author }}</p>
     <h1>{{ book.price }}</h1>
     <a href="{% url 'up_to_date' book.id %}"><button class="btn btn-info" type="button">edit can</button></a>
