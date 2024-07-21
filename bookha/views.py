@@ -11,3 +11,8 @@ class Bookdetail(generic.DetailView):
     model = Book
     template_name = 'bookha/bookdetail.html'  #html akhar faramoosh nashavad
 
+class Creating(generic.CreateView):
+    model = Book
+    template_name = 'bookha/creating.html'
+    fields = ['title', 'author', 'desc', 'price']
+
