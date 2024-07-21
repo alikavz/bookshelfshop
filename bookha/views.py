@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views import generic
 from .models import Book
 
@@ -11,6 +12,7 @@ class Bookdetail(generic.DetailView):
     model = Book
     template_name = 'bookha/bookdetail.html'  #html akhar faramoosh nashavad
 
+
 class Creating(generic.CreateView):
     model = Book
     template_name = 'bookha/creating.html'
@@ -21,4 +23,10 @@ class Updateview(generic.UpdateView):
     model = Book
     template_name = 'bookha/updating.html'
     fields = ['title', 'author', 'desc', 'price']
+
+
+class Deleting(generic.DeleteView):
+    model = Book
+    template_name = 'bookha/deleting.html'
+    success_url = reverse_lazy('booklis')
 

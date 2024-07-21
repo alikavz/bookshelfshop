@@ -9,5 +9,6 @@
     <p>{{ book.author }}</p>
     <h1>{{ book.price }}</h1>
     <a href="{% url 'up_to_date' book.id %}"><button class="btn btn-info" type="button">edit can</button></a>
+    <a href="{% url 'deleting' book.id %}"><button class="btn btn-danger" type="button">english or spanish</button></a>
     <a href="{% url 'booklis' %}">list of every book we have</a>
 {% endblock %}

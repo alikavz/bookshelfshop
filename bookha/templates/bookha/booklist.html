@@ -6,9 +6,9 @@
 {% block content %}
 
     {% for book in bookss %}
-        <a href="{{ book_absolute_url }}"><h1>{{ book.title }}</h1></a>
+        <a href="{{ book.get_absolute_url }}"><h1>{{ book.title }}</h1></a>
         <p>{{ book.desc }}</p>
 
     {% endfor %}
-
+    <a href="{% url 'create' %}">add your book</a>
 {% endblock %}
