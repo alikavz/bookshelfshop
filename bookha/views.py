@@ -3,6 +3,8 @@ from django.views import generic
 from .models import Book, Comment
 from django.shortcuts import get_object_or_404, render
 from .forms import Commentform
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 class Booklis(generic.ListView):
@@ -16,6 +18,7 @@ class Booklis(generic.ListView):
 #     model = Book
 #     template_name = 'bookha/bookdetail.html'  #html akhar faramoosh nashavad
 
+@login_required
 def bookdetail(request, pk):
     book = get_object_or_404(Book, pk=pk)
     comments1 = book.comments.all()
@@ -33,13 +36,13 @@ def bookdetail(request, pk):
     return render(request, 'bookha/bookdetail.html', {'book': book, 'comments': comments1, 'comment_form': comments2})
 
 
-class Creating(generic.CreateView):
+class Creating(LoginRequiredMixin, generic.CreateView):
     model = Book
     template_name = 'bookha/creating.html'
     fields = ['title', 'author', 'desc', 'price', 'covers']
 
 
-class Updateview(generic.UpdateView):
+class Updateview(LoginRequiredMixin, generic.UpdateView):
     model = Book
     template_name = 'bookha/updating.html'
     fields = ['title', 'author', 'desc', 'price', 'covers']
